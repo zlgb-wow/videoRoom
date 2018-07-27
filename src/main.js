@@ -7,6 +7,7 @@ import router from './router'
 import store from '@/vuex'
 import init from 'external/init'
 
+localStorage.token='123'
 
 init();
 
