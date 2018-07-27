@@ -28,7 +28,10 @@ module.exports = {
       'vue$': 'vue/dist/vue.esm.js',
       'assets': path.resolve(__dirname, '../src/assets'),
       '@': resolve('src'),
-      'components': resolve('src/components')
+      'components': resolve('src/components'),
+      'pages': resolve('src/pages'),
+      'external': resolve('src/external'),
+      'mixins': resolve('src/mixins')
     }
   },
   module: {
@@ -42,6 +45,10 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
+      },
+      {
+        test: /\.less$/,
+        loader: "style-loader!css-loader!less-loader",
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

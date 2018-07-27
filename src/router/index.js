@@ -1,15 +1,25 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-
+import routes from '@/router/routes'
 Vue.use(Router)
 
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    }
-  ]
+const router=new Router({
+  routes
 })
+
+router.beforeEach((to,from,next)=>{
+  if(to.meta.needLogin){
+    if(localStorage.token){
+      next()
+    }else{
+      next({name:'login'})
+    }
+  }else{
+    next()
+  } 
+})
+
+
+export default router;
+
+

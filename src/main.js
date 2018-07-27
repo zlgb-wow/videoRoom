@@ -3,6 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+//引入vuex
+import store from '@/vuex'
+import init from 'external/init'
+
+
+init();
 
 Vue.config.productionTip = false
 
@@ -10,6 +16,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
